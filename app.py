@@ -1,6 +1,6 @@
 from email import header
 from operator import index
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, redirect, url_for, request, render_template,render_template_string
 from model import SentimentRecommenderModel
 
 
@@ -9,7 +9,7 @@ app = Flask(__name__)
 sentiment_model = SentimentRecommenderModel()
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -23,7 +23,7 @@ def prediction():
     items = sentiment_model.getSentimentRecommendations(user)
 
     if(not(items is None)):
-        print(f"retrieving items....{len(items)}")
+        print(f"Retrieving items....{len(items)}")
         print(items)
         # data=[items.to_html(classes="table-striped table-hover", header="true",index=False)
         return render_template("index.html", column_names=items.columns.values, row_data=list(items.values.tolist()), zip=zip)
@@ -40,6 +40,12 @@ def predict_sentiment():
     print(pred_sentiment)
     return render_template("index.html", sentiment=pred_sentiment)
 
+def api_response():
+    from flask import jsonify
+    if request.method == 'POST':
+        return jsonify(**request.json)
+
 
 if __name__ == '__main__':
-    app.run()
+    #app.run()
+    app.run(debug=True, port=5000)
