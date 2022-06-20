@@ -10,3 +10,14 @@ Suppose you are working as a Machine Learning Engineer in an e-commerce company 
 With the advancement in technology, it is imperative for Ebuss to grow quickly in the e-commerce market to become a major leader in the market because it has to compete with the likes of Amazon, Flipkart, etc., which are already market leaders.
 
 As a senior ML Engineer, you are asked to build a model that will improve the recommendations given to the users given their past reviews and ratings. 
+
+
+
+
+
+
+
+
+**Recommender System** : Collaborative Filter (User-based) i.e. Similarity b/w users is used for recommendations 
+
+**Sentiment Classifier** : XG Boost Sentiment Classifier is used
