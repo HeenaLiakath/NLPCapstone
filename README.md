@@ -1,5 +1,4 @@
-# NLPCapstone
-NLP Sentiment Based Product Recommendation System - Capstone Project 
+# NLP Sentiment Based Product Recommendation System - Capstone Project 
 
 
 **Problem Statement** :
